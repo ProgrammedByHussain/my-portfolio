@@ -106,10 +106,9 @@ export default function HeroSection() {
             delay={200}
           >
             <p className="text-lg mb-4">
-              Hello! I'm Hussain, a third-year computer science student at the
-              University of Guelph. I enjoy learning new things and building
-              cool projects. I'm passionate about software development and
-              research.
+              I'm a third-year computer science student at the University of
+              Guelph. I enjoy learning new things and building cool projects.
+              I'm passionate about software development and research.
             </p>
 
             <p className="text-lg">
