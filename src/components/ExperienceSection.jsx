@@ -12,14 +12,43 @@ export default function ExperienceSection() {
       position: "Undergraduate Research Assistant",
       company: "The University of British Columbia",
       period: "January 2025 - Present",
-      description: "Working on PGo and Dcal.",
+      description: (
+        <>
+          Building{" "}
+          <a
+            href="https://distcompiler.github.io/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={
+              theme === "light"
+                ? "text-blue-600 hover:text-blue-800"
+                : "text-blue-400 hover:text-blue-300"
+            }
+          >
+            PGo
+          </a>{" "}
+          and{" "}
+          <a
+            href="https://github.com/DistCompiler/dcal"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={
+              theme === "light"
+                ? "text-blue-600 hover:text-blue-800"
+                : "text-blue-400 hover:text-blue-300"
+            }
+          >
+            DCal
+          </a>
+        </>
+      ),
       logo: "UBC.jpg",
     },
     {
       position: "Systems Analyst Co-op",
       company: "University of Guelph",
       period: "June 2024 - December 2024",
-      description: "Database merging and cleanup.",
+      description: "Database Merging and Cleanup",
       logo: "UofG.png",
     },
   ];
@@ -93,7 +122,9 @@ export default function ExperienceSection() {
                         theme === "light" ? "text-gray-700" : "text-gray-300"
                       }
                     >
-                      {exp.description}
+                      {typeof exp.description === "string"
+                        ? exp.description
+                        : exp.description}
                     </p>
                   </div>
                 </div>
