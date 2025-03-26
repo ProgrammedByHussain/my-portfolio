@@ -167,114 +167,118 @@ export default function ProjectsSection() {
   };
 
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="py-24">
       <div className="max-w-4xl mx-auto px-6">
-        <h2 className="text-3xl font-bold mb-8 text-center relative">
-          <span className="relative z-10">Projects</span>
-          <span
-            className={`absolute -top-1 left-1/2 -translate-x-1/2 text-6xl ${
-              theme === "light" ? "text-blue-500/10" : "text-blue-400/10"
-            } font-bold z-0`}
-          >
-            WORKS
-          </span>
-        </h2>
-
-        <div className="flex flex-col space-y-6">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="group cursor-pointer"
-              onClick={() => handleProjectClick(project.githubLink)}
+        <div className="flex flex-col items-center">
+          <h2 className="text-3xl font-bold mb-8 text-center relative">
+            <span className="relative z-10">Projects</span>
+            <span
+              className={`absolute -top-1 left-1/2 -translate-x-1/2 text-6xl ${
+                theme === "light" ? "text-blue-500/10" : "text-blue-400/10"
+              } font-bold z-0`}
             >
-              <ThemeCard
-                className="flex flex-col md:flex-row overflow-hidden project-card"
-                delay={index * 100}
-                hover={true}
-              >
-                <div
-                  className={`w-full md:w-1/3 bg-gradient-to-br ${getGradientClasses()} flex items-center justify-center text-white p-8`}
-                >
-                  {project.icon}
-                </div>
-                <div className="p-6 w-full md:w-2/3">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3
-                      className={`text-xl font-bold group-hover:text-blue-500 transition-colors ${
-                        theme === "light" ? "text-gray-900" : "text-white"
-                      }`}
-                    >
-                      {project.title}
-                    </h3>
-                    {project.award && (
-                      <span
-                        className={
-                          theme === "light"
-                            ? "bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs font-medium"
-                            : "bg-yellow-900/70 text-yellow-200 px-2 py-1 rounded text-xs font-medium"
-                        }
-                      >
-                        {project.award}
-                      </span>
-                    )}
-                  </div>
-                  <p
-                    className={
-                      theme === "light" ? "text-gray-700" : "text-gray-300"
-                    }
-                  >
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 my-4">
-                    {project.tags.map((tag, tagIndex) => (
-                      <span
-                        key={tagIndex}
-                        className={`${getColorClasses(
-                          tag.color
-                        )} px-2 py-1 rounded text-xs`}
-                      >
-                        {tag.name}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="flex space-x-4">
-                    {project.demoLink && (
-                      <button
-                        onClick={(e) => handleDemoClick(e, project.demoLink)}
-                        className={`inline-block ${
-                          theme === "light" ? "text-blue-600" : "text-blue-400"
-                        } hover:text-blue-700 font-medium`}
-                      >
-                        <YouTubeIcon /> View Demo →
-                      </button>
-                    )}
-                    <span
-                      className={`${
-                        theme === "light" ? "text-blue-600" : "text-blue-400"
-                      } opacity-0 group-hover:opacity-100 transition-opacity`}
-                    >
-                      View on GitHub →
-                    </span>
-                  </div>
-                </div>
-              </ThemeCard>
-            </div>
-          ))}
-        </div>
+              WORKS
+            </span>
+          </h2>
 
-        <div className="text-center mt-12">
-          <a
-            href="https://github.com/ProgrammedByHussain"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`inline-block px-6 py-3 rounded-full transition-colors ${
-              theme === "light"
-                ? "border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white"
-                : "border border-blue-400 text-blue-400 hover:bg-blue-600 hover:text-white"
-            }`}
-          >
-            View All Projects on GitHub
-          </a>
+          <div className="flex flex-col space-y-6 w-full">
+            {projects.map((project, index) => (
+              <div
+                key={index}
+                className="group cursor-pointer"
+                onClick={() => handleProjectClick(project.githubLink)}
+              >
+                <ThemeCard
+                  className="flex flex-col md:flex-row overflow-hidden project-card"
+                  delay={index * 100}
+                  hover={true}
+                >
+                  <div
+                    className={`w-full md:w-1/3 bg-gradient-to-br ${getGradientClasses()} flex items-center justify-center text-white p-8`}
+                  >
+                    {project.icon}
+                  </div>
+                  <div className="p-6 w-full md:w-2/3">
+                    <div className="flex justify-between items-start mb-2">
+                      <h3
+                        className={`text-xl font-bold group-hover:text-blue-500 transition-colors ${
+                          theme === "light" ? "text-gray-900" : "text-white"
+                        }`}
+                      >
+                        {project.title}
+                      </h3>
+                      {project.award && (
+                        <span
+                          className={
+                            theme === "light"
+                              ? "bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs font-medium"
+                              : "bg-yellow-900/70 text-yellow-200 px-2 py-1 rounded text-xs font-medium"
+                          }
+                        >
+                          {project.award}
+                        </span>
+                      )}
+                    </div>
+                    <p
+                      className={
+                        theme === "light" ? "text-gray-700" : "text-gray-300"
+                      }
+                    >
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2 my-4">
+                      {project.tags.map((tag, tagIndex) => (
+                        <span
+                          key={tagIndex}
+                          className={`${getColorClasses(
+                            tag.color
+                          )} px-2 py-1 rounded text-xs`}
+                        >
+                          {tag.name}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="flex space-x-4">
+                      {project.demoLink && (
+                        <button
+                          onClick={(e) => handleDemoClick(e, project.demoLink)}
+                          className={`inline-block ${
+                            theme === "light"
+                              ? "text-blue-600"
+                              : "text-blue-400"
+                          } hover:text-blue-700 font-medium`}
+                        >
+                          <YouTubeIcon /> View Demo →
+                        </button>
+                      )}
+                      <span
+                        className={`${
+                          theme === "light" ? "text-blue-600" : "text-blue-400"
+                        } opacity-0 group-hover:opacity-100 transition-opacity`}
+                      >
+                        View on GitHub →
+                      </span>
+                    </div>
+                  </div>
+                </ThemeCard>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <a
+              href="https://github.com/ProgrammedByHussain"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`inline-block px-6 py-3 rounded-full transition-colors ${
+                theme === "light"
+                  ? "border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white"
+                  : "border border-blue-400 text-blue-400 hover:bg-blue-600 hover:text-white"
+              }`}
+            >
+              View All Projects on GitHub
+            </a>
+          </div>
         </div>
       </div>
     </section>
