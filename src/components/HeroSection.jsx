@@ -1,5 +1,12 @@
+"use client";
+
+import { useTheme } from "./ThemeProvider";
+import ThemeCard from "./ThemeCard";
+
 export default function HeroSection() {
+  const { theme } = useTheme();
   const introText = "Hi, I'm Hussain";
+
   const introLetters = introText.split("").map((letter, index) => {
     const letterClass =
       index === 0 || index === 1 || index === 2 ? "text-blue-500" : "";
@@ -29,7 +36,9 @@ export default function HeroSection() {
             href="https://github.com/ProgrammedByHussain"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-all hover:scale-125"
+            className={`${
+              theme === "light" ? "text-gray-700" : "text-gray-300"
+            } hover:text-blue-500 transition-all hover:scale-125`}
             aria-label="GitHub"
           >
             <svg
@@ -50,7 +59,9 @@ export default function HeroSection() {
             href="https://linkedin.com/in/hussain-al-shammari"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-all hover:scale-125"
+            className={`${
+              theme === "light" ? "text-gray-700" : "text-gray-300"
+            } hover:text-blue-500 transition-all hover:scale-125`}
             aria-label="LinkedIn"
           >
             <svg
@@ -71,7 +82,9 @@ export default function HeroSection() {
 
           <a
             href="mailto:alshammh@uoguelph.ca"
-            className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-all hover:scale-125"
+            className={`${
+              theme === "light" ? "text-gray-700" : "text-gray-300"
+            } hover:text-blue-500 transition-all hover:scale-125`}
             aria-label="Email"
           >
             <svg
@@ -90,7 +103,10 @@ export default function HeroSection() {
           </a>
         </div>
 
-        <div className="max-w-2xl mx-auto bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 shadow-md animate-fade-in delay-200 text-left">
+        <ThemeCard
+          className="max-w-2xl mx-auto p-6 backdrop-blur-sm text-left"
+          delay={200}
+        >
           <p className="text-lg mb-4">
             Hello! I'm Hussain, a third-year computer science student at the
             University of Guelph. I enjoy learning new things and building cool
@@ -98,10 +114,10 @@ export default function HeroSection() {
           </p>
 
           <p className="text-lg">
-            Outside of coding, I enjoy going to the gym, improving my fashion,
-            and meeting new people.
+            When I'm not coding, I enjoy going to the gym and meeting new
+            people.
           </p>
-        </div>
+        </ThemeCard>
       </div>
     </section>
   );

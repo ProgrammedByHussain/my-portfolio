@@ -47,19 +47,29 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const getNavbarBackground = () => {
+    if (!isScrolled) return "bg-transparent";
+
+    return theme === "light"
+      ? "bg-white/90 backdrop-blur-sm shadow-md"
+      : "bg-gray-900/90 backdrop-blur-sm shadow-md";
+  };
+
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-md py-3"
-          : "bg-transparent py-5"
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${getNavbarBackground()} ${
+        isScrolled ? "py-3" : "py-5"
       }`}
     >
       <div className="max-w-4xl mx-auto px-6 flex justify-between items-center">
         <div className="text-xl font-bold transition-transform hover:scale-105">
           <a href="#" className="flex items-center gap-2">
             <span className="text-blue-500">HA</span>
-            <span>Hussain Al-Shammari</span>
+            <span
+              className={theme === "light" ? "text-gray-900" : "text-white"}
+            >
+              Hussain Al-Shammari
+            </span>
           </a>
         </div>
 
@@ -67,7 +77,11 @@ export default function Navbar() {
           <button
             onClick={() => scrollToSection("experience")}
             className={`transition-all hover:text-blue-500 relative ${
-              activeSection === "experience" ? "text-blue-500 font-medium" : ""
+              activeSection === "experience"
+                ? "text-blue-500 font-medium"
+                : theme === "light"
+                ? "text-gray-800"
+                : "text-gray-200"
             }`}
           >
             Experience
@@ -78,7 +92,11 @@ export default function Navbar() {
           <button
             onClick={() => scrollToSection("projects")}
             className={`transition-all hover:text-blue-500 relative ${
-              activeSection === "projects" ? "text-blue-500 font-medium" : ""
+              activeSection === "projects"
+                ? "text-blue-500 font-medium"
+                : theme === "light"
+                ? "text-gray-800"
+                : "text-gray-200"
             }`}
           >
             Projects
@@ -89,7 +107,11 @@ export default function Navbar() {
 
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            className={`p-2 rounded-full transition-colors ${
+              theme === "light"
+                ? "hover:bg-gray-100 text-gray-800"
+                : "hover:bg-gray-800 text-gray-200"
+            }`}
             aria-label="Toggle theme"
           >
             {theme === "dark" ? (
@@ -129,7 +151,11 @@ export default function Navbar() {
         <div className="md:hidden flex items-center space-x-3">
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            className={`p-2 rounded-full transition-colors ${
+              theme === "light"
+                ? "hover:bg-gray-100 text-gray-800"
+                : "hover:bg-gray-800 text-gray-200"
+            }`}
             aria-label="Toggle theme"
           >
             {theme === "dark" ? (
@@ -166,7 +192,9 @@ export default function Navbar() {
           </button>
 
           <button
-            className="p-2 transition-transform active:scale-90"
+            className={`p-2 transition-transform active:scale-90 ${
+              theme === "light" ? "text-gray-800" : "text-gray-200"
+            }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
@@ -205,14 +233,22 @@ export default function Navbar() {
       </div>
 
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-t border-gray-200 dark:border-gray-800 py-4 px-6 animate-fade-in">
+        <div
+          className={`md:hidden ${
+            theme === "light" ? "bg-white/95" : "bg-gray-900/95"
+          } backdrop-blur-sm border-t ${
+            theme === "light" ? "border-gray-200" : "border-gray-800"
+          } py-4 px-6 animate-fade-in`}
+        >
           <div className="flex flex-col space-y-4">
             <button
               onClick={() => scrollToSection("experience")}
               className={`py-2 px-4 rounded ${
                 activeSection === "experience"
                   ? "bg-blue-500/10 text-blue-500 font-medium"
-                  : ""
+                  : theme === "light"
+                  ? "text-gray-800"
+                  : "text-gray-200"
               }`}
             >
               Experience
@@ -222,7 +258,9 @@ export default function Navbar() {
               className={`py-2 px-4 rounded ${
                 activeSection === "projects"
                   ? "bg-blue-500/10 text-blue-500 font-medium"
-                  : ""
+                  : theme === "light"
+                  ? "text-gray-800"
+                  : "text-gray-200"
               }`}
             >
               Projects

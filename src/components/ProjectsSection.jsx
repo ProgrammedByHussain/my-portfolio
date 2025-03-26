@@ -1,61 +1,52 @@
 "use client";
 
+import { useTheme } from "./ThemeProvider";
+import ThemeCard from "./ThemeCard";
+
 export default function ProjectsSection() {
-  const colorClasses = {
-    red: {
-      bg: "bg-red-100",
-      text: "text-red-800",
-      darkBg: "dark:bg-red-900",
-      darkText: "dark:text-red-200",
-    },
-    blue: {
-      bg: "bg-blue-100",
-      text: "text-blue-800",
-      darkBg: "dark:bg-blue-900",
-      darkText: "dark:text-blue-200",
-    },
-    purple: {
-      bg: "bg-purple-100",
-      text: "text-purple-800",
-      darkBg: "dark:bg-purple-900",
-      darkText: "dark:text-purple-200",
-    },
-    indigo: {
-      bg: "bg-indigo-100",
-      text: "text-indigo-800",
-      darkBg: "dark:bg-indigo-900",
-      darkText: "dark:text-indigo-200",
-    },
-    green: {
-      bg: "bg-green-100",
-      text: "text-green-800",
-      darkBg: "dark:bg-green-900",
-      darkText: "dark:text-green-200",
-    },
-    yellow: {
-      bg: "bg-yellow-100",
-      text: "text-yellow-800",
-      darkBg: "dark:bg-yellow-900",
-      darkText: "dark:text-yellow-200",
-    },
-    pink: {
-      bg: "bg-pink-100",
-      text: "text-pink-800",
-      darkBg: "dark:bg-pink-900",
-      darkText: "dark:text-pink-200",
-    },
-    teal: {
-      bg: "bg-teal-100",
-      text: "text-teal-800",
-      darkBg: "dark:bg-teal-900",
-      darkText: "dark:text-teal-200",
-    },
-    gray: {
-      bg: "bg-gray-100",
-      text: "text-gray-800",
-      darkBg: "dark:bg-gray-900",
-      darkText: "dark:text-gray-200",
-    },
+  const { theme } = useTheme();
+
+  const getColorClasses = (colorName) => {
+    const colorMap = {
+      red: {
+        light: { bg: "bg-red-100", text: "text-red-800" },
+        dark: { bg: "bg-red-900/70", text: "text-red-200" },
+      },
+      blue: {
+        light: { bg: "bg-blue-100", text: "text-blue-800" },
+        dark: { bg: "bg-blue-900/70", text: "text-blue-200" },
+      },
+      purple: {
+        light: { bg: "bg-purple-100", text: "text-purple-800" },
+        dark: { bg: "bg-purple-900/70", text: "text-purple-200" },
+      },
+      indigo: {
+        light: { bg: "bg-indigo-100", text: "text-indigo-800" },
+        dark: { bg: "bg-indigo-900/70", text: "text-indigo-200" },
+      },
+      green: {
+        light: { bg: "bg-green-100", text: "text-green-800" },
+        dark: { bg: "bg-green-900/70", text: "text-green-200" },
+      },
+      yellow: {
+        light: { bg: "bg-yellow-100", text: "text-yellow-800" },
+        dark: { bg: "bg-yellow-900/70", text: "text-yellow-200" },
+      },
+      pink: {
+        light: { bg: "bg-pink-100", text: "text-pink-800" },
+        dark: { bg: "bg-pink-900/70", text: "text-pink-200" },
+      },
+      teal: {
+        light: { bg: "bg-teal-100", text: "text-teal-800" },
+        dark: { bg: "bg-teal-900/70", text: "text-teal-200" },
+      },
+      gray: {
+        light: { bg: "bg-gray-100", text: "text-gray-800" },
+        dark: { bg: "bg-gray-800/70", text: "text-gray-200" },
+      },
+    };
+
+    return `${colorMap[colorName][theme].bg} ${colorMap[colorName][theme].text}`;
   };
 
   const projects = [
@@ -169,12 +160,22 @@ export default function ProjectsSection() {
     </svg>
   );
 
+  const getGradientClasses = () => {
+    return theme === "light"
+      ? "from-blue-500 to-indigo-600"
+      : "from-blue-600 to-indigo-700";
+  };
+
   return (
     <section id="projects" className="py-20">
       <div className="max-w-4xl mx-auto px-6">
         <h2 className="text-3xl font-bold mb-8 text-center relative">
           <span className="relative z-10">Projects</span>
-          <span className="absolute -top-1 left-1/2 -translate-x-1/2 text-6xl text-blue-500/10 font-bold z-0">
+          <span
+            className={`absolute -top-1 left-1/2 -translate-x-1/2 text-6xl ${
+              theme === "light" ? "text-blue-500/10" : "text-blue-400/10"
+            } font-bold z-0`}
+          >
             WORKS
           </span>
         </h2>
@@ -186,37 +187,51 @@ export default function ProjectsSection() {
               className="group cursor-pointer"
               onClick={() => handleProjectClick(project.githubLink)}
             >
-              <div
-                className="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg animate-fade-in flex flex-col md:flex-row 
-                transition-all duration-300 transform group-hover:shadow-2xl group-hover:-translate-y-1"
-                style={{ animationDelay: `${index * 100}ms` }}
+              <ThemeCard
+                className="flex flex-col md:flex-row overflow-hidden project-card"
+                delay={index * 100}
+                hover={true}
               >
-                <div className="w-full md:w-1/3 bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white p-8">
+                <div
+                  className={`w-full md:w-1/3 bg-gradient-to-br ${getGradientClasses()} flex items-center justify-center text-white p-8`}
+                >
                   {project.icon}
                 </div>
                 <div className="p-6 w-full md:w-2/3">
                   <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-xl font-bold group-hover:text-blue-500 transition-colors">
+                    <h3
+                      className={`text-xl font-bold group-hover:text-blue-500 transition-colors ${
+                        theme === "light" ? "text-gray-900" : "text-white"
+                      }`}
+                    >
                       {project.title}
                     </h3>
                     {project.award && (
-                      <span className="bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 px-2 py-1 rounded text-xs font-medium">
+                      <span
+                        className={
+                          theme === "light"
+                            ? "bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs font-medium"
+                            : "bg-yellow-900/70 text-yellow-200 px-2 py-1 rounded text-xs font-medium"
+                        }
+                      >
                         {project.award}
                       </span>
                     )}
                   </div>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4">
+                  <p
+                    className={
+                      theme === "light" ? "text-gray-700" : "text-gray-300"
+                    }
+                  >
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="flex flex-wrap gap-2 my-4">
                     {project.tags.map((tag, tagIndex) => (
                       <span
                         key={tagIndex}
-                        className={`${colorClasses[tag.color].bg} ${
-                          colorClasses[tag.color].text
-                        } ${colorClasses[tag.color].darkBg} ${
-                          colorClasses[tag.color].darkText
-                        } px-2 py-1 rounded text-xs`}
+                        className={`${getColorClasses(
+                          tag.color
+                        )} px-2 py-1 rounded text-xs`}
                       >
                         {tag.name}
                       </span>
@@ -226,17 +241,23 @@ export default function ProjectsSection() {
                     {project.demoLink && (
                       <button
                         onClick={(e) => handleDemoClick(e, project.demoLink)}
-                        className="inline-block text-blue-500 hover:text-blue-700 font-medium"
+                        className={`inline-block ${
+                          theme === "light" ? "text-blue-600" : "text-blue-400"
+                        } hover:text-blue-700 font-medium`}
                       >
                         <YouTubeIcon /> View Demo →
                       </button>
                     )}
-                    <span className="text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span
+                      className={`${
+                        theme === "light" ? "text-blue-600" : "text-blue-400"
+                      } opacity-0 group-hover:opacity-100 transition-opacity`}
+                    >
                       View on GitHub →
                     </span>
                   </div>
                 </div>
-              </div>
+              </ThemeCard>
             </div>
           ))}
         </div>
@@ -246,7 +267,11 @@ export default function ProjectsSection() {
             href="https://github.com/ProgrammedByHussain"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-6 py-3 border border-blue-500 text-blue-500 rounded-full hover:bg-blue-500 hover:text-white transition-colors"
+            className={`inline-block px-6 py-3 rounded-full transition-colors ${
+              theme === "light"
+                ? "border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white"
+                : "border border-blue-400 text-blue-400 hover:bg-blue-600 hover:text-white"
+            }`}
           >
             View All Projects on GitHub
           </a>

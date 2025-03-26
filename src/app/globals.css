@@ -128,7 +128,6 @@ body {
   animation: rotate 8s linear infinite;
 }
 
-/* Animation delays */
 .delay-100 {
   animation-delay: 0.1s;
 }
@@ -149,12 +148,10 @@ body {
   animation-delay: 0.5s;
 }
 
-/* Smooth scrolling for the whole page */
 html {
   scroll-behavior: smooth;
 }
 
-/* Skill orbs animation */
 .skill-orb {
   transition: all 0.3s ease;
 }
@@ -164,7 +161,6 @@ html {
   box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
 }
 
-/* Project cards hover effect */
 .project-card {
   transition: all 0.3s ease;
 }
@@ -175,12 +171,10 @@ html {
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-/* Gradient backgrounds */
 .bg-gradient-blue {
   background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -198,7 +192,6 @@ html {
   background: rgba(100, 116, 139, 0.5);
 }
 
-/* Experience tab transitions */
 .tab-transition {
   transition: all 0.3s ease;
 }
