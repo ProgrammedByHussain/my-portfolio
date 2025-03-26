@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function ExperienceSection() {
   const experiences = [
     {
@@ -5,15 +7,14 @@ export default function ExperienceSection() {
       company: "The University of British Columbia",
       period: "January 2025 - Present",
       description: "Working on PGo and Dcal.",
-      logoPlaceholder: "UBC",
+      logo: "UBC.jpg",
     },
     {
-      position: "Systems Analyst",
+      position: "Systems Analyst Co-op",
       company: "University of Guelph",
       period: "June 2024 - December 2024",
-      description:
-        "Migrated the University's fall and winter databases into one combined database through Java, Python, and SQL.",
-      logoPlaceholder: "UofG",
+      description: "Database merging and cleanup.",
+      logo: "UofG.png",
     },
   ];
 
@@ -36,8 +37,12 @@ export default function ExperienceSection() {
             >
               <div className="p-6 flex flex-col md:flex-row gap-6">
                 <div className="flex-shrink-0">
-                  <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center text-white text-xl font-bold">
-                    {exp.logoPlaceholder}
+                  <div className="w-20 h-20 rounded-lg overflow-hidden flex items-center justify-center">
+                    <img
+                      src={exp.logo}
+                      alt={`${exp.company} logo`}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
 

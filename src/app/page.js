@@ -1,7 +1,6 @@
 import ParticleBackground from "../components/ParticleBackground";
 import Navbar from "../components/Navbar";
 import HeroSection from "../components/HeroSection";
-import AboutSection from "../components/AboutSection";
 import ExperienceSection from "../components/ExperienceSection";
 import ProjectsSection from "../components/ProjectsSection";
 
@@ -13,7 +12,6 @@ export default function Home() {
 
       <main className="relative z-10">
         <HeroSection />
-        <AboutSection />
         <ExperienceSection />
         <ProjectsSection />
       </main>
@@ -21,8 +19,7 @@ export default function Home() {
       <footer className="py-8 border-t border-gray-200 dark:border-gray-800">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <p className="mb-4">
-            © {new Date().getFullYear()} Hussain Al-Shammari. All rights
-            reserved.
+            © {new Date().getFullYear()} Hussain Al-Shammari
           </p>
           <p className="text-sm text-gray-600 dark:text-gray-400">
             Built with Next.js and Tailwind CSS

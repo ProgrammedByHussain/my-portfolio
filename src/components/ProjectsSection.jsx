@@ -1,9 +1,68 @@
+"use client";
+
 export default function ProjectsSection() {
+  const colorClasses = {
+    red: {
+      bg: "bg-red-100",
+      text: "text-red-800",
+      darkBg: "dark:bg-red-900",
+      darkText: "dark:text-red-200",
+    },
+    blue: {
+      bg: "bg-blue-100",
+      text: "text-blue-800",
+      darkBg: "dark:bg-blue-900",
+      darkText: "dark:text-blue-200",
+    },
+    purple: {
+      bg: "bg-purple-100",
+      text: "text-purple-800",
+      darkBg: "dark:bg-purple-900",
+      darkText: "dark:text-purple-200",
+    },
+    indigo: {
+      bg: "bg-indigo-100",
+      text: "text-indigo-800",
+      darkBg: "dark:bg-indigo-900",
+      darkText: "dark:text-indigo-200",
+    },
+    green: {
+      bg: "bg-green-100",
+      text: "text-green-800",
+      darkBg: "dark:bg-green-900",
+      darkText: "dark:text-green-200",
+    },
+    yellow: {
+      bg: "bg-yellow-100",
+      text: "text-yellow-800",
+      darkBg: "dark:bg-yellow-900",
+      darkText: "dark:text-yellow-200",
+    },
+    pink: {
+      bg: "bg-pink-100",
+      text: "text-pink-800",
+      darkBg: "dark:bg-pink-900",
+      darkText: "dark:text-pink-200",
+    },
+    teal: {
+      bg: "bg-teal-100",
+      text: "text-teal-800",
+      darkBg: "dark:bg-teal-900",
+      darkText: "dark:text-teal-200",
+    },
+    gray: {
+      bg: "bg-gray-100",
+      text: "text-gray-800",
+      darkBg: "dark:bg-gray-900",
+      darkText: "dark:text-gray-200",
+    },
+  };
+
   const projects = [
     {
       title: "Land Locks",
       description:
-        "A blockchain-based NFT property rights platform built on the Internet Computer Protocol (ICP). Implemented NFT minting, search, and transfer features, leveraging Rust canister smart contracts to optimize storage and reduce query response times by 40%. Developed secure user authentication using Internet Identity, allowing seamless login and ownership verification. Deployed to the ICP Mainnet, ensuring permanent on-chain storage, and fast, low-cost transactions without gas fees.",
+        "A blockchain-based NFT property rights platform built on the Internet Computer Protocol (ICP).",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -28,11 +87,12 @@ export default function ProjectsSection() {
       ],
       award: "1st Place at Hack Canada 2025",
       demoLink: "https://youtu.be/0Kc4P3s-sdk",
+      githubLink: "https://github.com/ProgrammedByHussain/LandLocks",
     },
     {
       title: "Green Link",
       description:
-        "An application that incentivizes transit use by rewarding users with points redeemable at local businesses. Integrated Google Maps API with geofencing to dynamically track user location and verify transit use every 100 ms. Stored recent routes and user data in a Supabase database, with live updates to in-app eco-score progression.",
+        "An application that incentivizes transit use by rewarding users with points redeemable at local businesses.",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -56,11 +116,12 @@ export default function ProjectsSection() {
         { name: "Supabase", color: "teal" },
       ],
       award: "Top 8 and On Stage Award at BramHacks 2024",
+      githubLink: "https://github.com/ProgrammedByHussain/GreenLink",
     },
     {
-      title: "Mood Muse",
+      title: "Switchify",
       description:
-        "A program that analyzes songs and provides mood-curated playlists based on lyrics and audio features. Integrated Spotify and Genius APIs to fetch song data and lyric URLs, using web scraping to extract lyrics. Engineered a machine learning pipeline using TensorFlow to process song lyrics and predict a mood for each track.",
+        "A program that transfers Spotify playlists to Apple Music using MusicKit.js and Spotify Web API.",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -78,14 +139,35 @@ export default function ProjectsSection() {
         </svg>
       ),
       tags: [
-        { name: "MongoDB", color: "green" },
-        { name: "Express", color: "gray" },
         { name: "React", color: "blue" },
+        { name: "TypeScript", color: "pink" },
         { name: "Node.js", color: "green" },
-        { name: "Python", color: "yellow" },
+        { name: "Express", color: "gray" },
+        { name: "Tailwind CSS", color: "teal" },
       ],
+      githubLink: "https://github.com/ProgrammedByHussain/Switchify",
     },
   ];
+
+  const handleProjectClick = (url) => {
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
+  const handleDemoClick = (e, url) => {
+    e.stopPropagation();
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
+  const YouTubeIcon = () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-4 w-4 inline-block mr-1"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+    </svg>
+  );
 
   return (
     <section id="projects" className="py-20">
@@ -101,51 +183,58 @@ export default function ProjectsSection() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg animate-fade-in flex flex-col md:flex-row"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="group cursor-pointer"
+              onClick={() => handleProjectClick(project.githubLink)}
             >
-              <div className="w-full md:w-1/3 bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white p-8">
-                {project.icon}
-              </div>
-              <div className="p-6 w-full md:w-2/3">
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-xl font-bold">{project.title}</h3>
-                  {project.award && (
-                    <span className="bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 px-2 py-1 rounded text-xs font-medium">
-                      {project.award}
-                    </span>
-                  )}
+              <div
+                className="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg animate-fade-in flex flex-col md:flex-row 
+                transition-all duration-300 transform group-hover:shadow-2xl group-hover:-translate-y-1"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="w-full md:w-1/3 bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white p-8">
+                  {project.icon}
                 </div>
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span
-                      key={tagIndex}
-                      className={`bg-${tag.color}-100 text-${tag.color}-800 dark:bg-${tag.color}-900 dark:text-${tag.color}-200 px-2 py-1 rounded text-xs`}
-                    >
-                      {tag.name}
+                <div className="p-6 w-full md:w-2/3">
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-xl font-bold group-hover:text-blue-500 transition-colors">
+                      {project.title}
+                    </h3>
+                    {project.award && (
+                      <span className="bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 px-2 py-1 rounded text-xs font-medium">
+                        {project.award}
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-gray-600 dark:text-gray-400 mb-4">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tags.map((tag, tagIndex) => (
+                      <span
+                        key={tagIndex}
+                        className={`${colorClasses[tag.color].bg} ${
+                          colorClasses[tag.color].text
+                        } ${colorClasses[tag.color].darkBg} ${
+                          colorClasses[tag.color].darkText
+                        } px-2 py-1 rounded text-xs`}
+                      >
+                        {tag.name}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex space-x-4">
+                    {project.demoLink && (
+                      <button
+                        onClick={(e) => handleDemoClick(e, project.demoLink)}
+                        className="inline-block text-blue-500 hover:text-blue-700 font-medium"
+                      >
+                        <YouTubeIcon /> View Demo →
+                      </button>
+                    )}
+                    <span className="text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                      View on GitHub →
                     </span>
-                  ))}
-                </div>
-                <div className="flex space-x-4">
-                  {project.demoLink && (
-                    <a
-                      href={project.demoLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block text-blue-500 hover:text-blue-700 font-medium"
-                    >
-                      View Demo →
-                    </a>
-                  )}
-                  <a
-                    href="#"
-                    className="inline-block text-blue-500 hover:text-blue-700 font-medium"
-                  >
-                    View Details →
-                  </a>
+                  </div>
                 </div>
               </div>
             </div>

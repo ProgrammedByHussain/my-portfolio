@@ -1,20 +1,35 @@
 export default function HeroSection() {
+  const introText = "Hi, I'm Hussain";
+  const introLetters = introText.split("").map((letter, index) => {
+    const letterClass =
+      index === 0 || index === 1 || index === 2 ? "text-blue-500" : "";
+
+    return (
+      <span
+        key={index}
+        className={`inline-block transition-transform duration-200 hover:text-blue-500 hover:-translate-y-2 ${letterClass}`}
+      >
+        {letter === " " ? "\u00A0" : letter}
+      </span>
+    );
+  });
+
   return (
     <section
       id="hero"
-      className="h-[50vh] flex flex-col justify-center items-center py-20"
+      className="min-h-[80vh] flex flex-col justify-center items-center py-20"
     >
-      <div className="max-w-3xl mx-auto px-6 text-center">
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-12 animate-fade-in">
-          <span className="text-blue-500">Hi,</span> I'm Hussain
+      <div className="max-w-3xl mx-auto px-6">
+        <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-8 animate-fade-in text-center">
+          {introLetters}
         </h1>
 
-        <div className="flex justify-center items-center space-x-8 animate-fade-in delay-100">
+        <div className="flex justify-center items-center space-x-8 mb-12 animate-fade-in delay-100">
           <a
             href="https://github.com/ProgrammedByHussain"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+            className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-all hover:scale-125"
             aria-label="GitHub"
           >
             <svg
@@ -35,7 +50,7 @@ export default function HeroSection() {
             href="https://linkedin.com/in/hussain-al-shammari"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+            className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-all hover:scale-125"
             aria-label="LinkedIn"
           >
             <svg
@@ -56,7 +71,7 @@ export default function HeroSection() {
 
           <a
             href="mailto:alshammh@uoguelph.ca"
-            className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+            className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-all hover:scale-125"
             aria-label="Email"
           >
             <svg
@@ -73,6 +88,19 @@ export default function HeroSection() {
               <polyline points="22,6 12,13 2,6"></polyline>
             </svg>
           </a>
+        </div>
+
+        <div className="max-w-2xl mx-auto bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 shadow-md animate-fade-in delay-200 text-left">
+          <p className="text-lg mb-4">
+            Hello! I'm Hussain, a third-year computer science student at the
+            University of Guelph. I enjoy learning new things and building cool
+            projects. I'm passionate about software development and research.
+          </p>
+
+          <p className="text-lg">
+            Outside of coding, I enjoy going to the gym, improving my fashion,
+            and meeting new people.
+          </p>
         </div>
       </div>
     </section>

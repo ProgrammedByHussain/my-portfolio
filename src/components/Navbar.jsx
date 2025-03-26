@@ -17,7 +17,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["hero", "about", "experience", "projects"];
+      const sections = ["hero", "experience", "projects"];
       const scrollPosition = window.scrollY;
 
       if (scrollPosition > 50) {
@@ -64,17 +64,6 @@ export default function Navbar() {
         </div>
 
         <div className="hidden md:flex space-x-8 items-center">
-          <button
-            onClick={() => scrollToSection("about")}
-            className={`transition-all hover:text-blue-500 relative ${
-              activeSection === "about" ? "text-blue-500 font-medium" : ""
-            }`}
-          >
-            About
-            {activeSection === "about" && (
-              <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-500 transform transition-transform"></span>
-            )}
-          </button>
           <button
             onClick={() => scrollToSection("experience")}
             className={`transition-all hover:text-blue-500 relative ${
@@ -218,16 +207,6 @@ export default function Navbar() {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-t border-gray-200 dark:border-gray-800 py-4 px-6 animate-fade-in">
           <div className="flex flex-col space-y-4">
-            <button
-              onClick={() => scrollToSection("about")}
-              className={`py-2 px-4 rounded ${
-                activeSection === "about"
-                  ? "bg-blue-500/10 text-blue-500 font-medium"
-                  : ""
-              }`}
-            >
-              About
-            </button>
             <button
               onClick={() => scrollToSection("experience")}
               className={`py-2 px-4 rounded ${
