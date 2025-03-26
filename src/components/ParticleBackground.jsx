@@ -13,17 +13,26 @@ export default function ParticleBackground() {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
     let animationFrameId;
+    let particlesArray = [];
+
+    const particleDensityFactor = 0.00004;
+    const maxParticles = 150;
+    const minParticles = 30;
 
     const handleResize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+
+      const area = canvas.width * canvas.height;
+      let numberOfParticles = Math.floor(area * particleDensityFactor);
+
+      numberOfParticles = Math.max(
+        minParticles,
+        Math.min(numberOfParticles, maxParticles)
+      );
+
+      initParticles(numberOfParticles);
     };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-
-    const particlesArray = [];
-    const numberOfParticles = 100;
 
     class Particle {
       constructor() {
@@ -57,15 +66,16 @@ export default function ParticleBackground() {
       }
     }
 
-    function init() {
-      particlesArray.length = 0;
-      for (let i = 0; i < numberOfParticles; i++) {
+    function initParticles(count) {
+      particlesArray = [];
+      for (let i = 0; i < count; i++) {
         particlesArray.push(new Particle());
       }
     }
 
     function connect() {
-      const maxDistance = 150;
+      const maxDistance = Math.min(canvas.width, canvas.height) * 0.15;
+
       for (let a = 0; a < particlesArray.length; a++) {
         for (let b = a; b < particlesArray.length; b++) {
           const dx = particlesArray[a].x - particlesArray[b].x;
@@ -101,7 +111,8 @@ export default function ParticleBackground() {
       animationFrameId = requestAnimationFrame(animate);
     }
 
-    init();
+    handleResize();
+    window.addEventListener("resize", handleResize);
     animate();
 
     // Cleanup
