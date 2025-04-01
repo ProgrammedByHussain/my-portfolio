@@ -51,6 +51,13 @@ export default function ExperienceSection() {
       description: "Database Merging and Cleanup",
       logo: "UofG.png",
     },
+    {
+      position: "Software Developer Intern",
+      company: "Yurmo",
+      period: "May 2023 - August 2023",
+      description: "Core Development",
+      logo: "Yurmo.jpg",
+    },
   ];
 
   const getCompanyLogoStyle = () => {
