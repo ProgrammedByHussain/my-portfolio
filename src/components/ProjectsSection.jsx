@@ -81,6 +81,35 @@ export default function ProjectsSection() {
       githubLink: "https://github.com/ProgrammedByHussain/LandLocks",
     },
     {
+      title: "CodeDucky.AI",
+      description:
+        "A Chrome extension that provides intelligent hints for LeetCode problems based on your current code, using OpenAI's API.",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-16 w-16"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+          />
+        </svg>
+      ),
+      tags: [
+        { name: "React", color: "blue" },
+        { name: "Flask", color: "green" },
+        { name: "OpenAI API", color: "purple" },
+        { name: "Chrome Extension", color: "yellow" },
+      ],
+      demoLink: "",
+      githubLink: "https://github.com/ProgrammedByHussain/CodeDucky.AI",
+    },
+    {
       title: "Green Link",
       description:
         "An application that incentivizes transit use by rewarding users with points redeemable at local businesses.",
