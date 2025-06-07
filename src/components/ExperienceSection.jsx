@@ -9,6 +9,13 @@ export default function ExperienceSection() {
 
   const experiences = [
     {
+      position: "Software Developer & QA Intern",
+      company: "Health Espresso Inc.",
+      period: "May 2025 - Present",
+      description: "Backend Development & QA Automation",
+      logo: "HE.jpeg",
+    },
+    {
       position: "Undergraduate Research Assistant",
       company: "The University of British Columbia",
       period: "January 2025 - Present",
@@ -45,7 +52,7 @@ export default function ExperienceSection() {
       logo: "UBC.jpg",
     },
     {
-      position: "Systems Analyst Co-op",
+      position: "Systems Analyst Intern",
       company: "University of Guelph",
       period: "June 2024 - December 2024",
       description: "Database Merging and Cleanup",
