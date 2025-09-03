@@ -1,4 +1,3 @@
-import ParticleBackground from "../components/ParticleBackground";
 import Navbar from "../components/Navbar";
 import HeroSection from "../components/HeroSection";
 import ExperienceSection from "../components/ExperienceSection";
@@ -6,11 +5,10 @@ import ProjectsSection from "../components/ProjectsSection";
 
 export default function Home() {
   return (
-    <div className="min-h-screen relative">
-      <ParticleBackground />
+    <div className="min-h-screen">
       <Navbar />
 
-      <main className="relative z-10">
+      <main>
         <HeroSection />
         <ExperienceSection />
         <ProjectsSection />

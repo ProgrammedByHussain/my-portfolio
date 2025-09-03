@@ -1,42 +1,24 @@
 "use client";
 
-import { useTheme } from "./ThemeProvider";
-import ThemeCard from "./ThemeCard";
-
 export default function HeroSection() {
-  const { theme } = useTheme();
-  const introText = "Hi, I'm Hussain";
-
-  const introLetters = introText.split("").map((letter, index) => {
-    const letterClass =
-      index === 0 || index === 1 || index === 2 ? "text-blue-500" : "";
-
-    return (
-      <span
-        key={index}
-        className={`inline-block transition-transform duration-200 hover:text-blue-500 hover:-translate-y-2 ${letterClass}`}
-      >
-        {letter === " " ? "\u00A0" : letter}
-      </span>
-    );
-  });
-
   return (
-    <section id="hero" className="py-24 md:py-32">
+    <section id="hero" className="py-16 pb-8">
       <div className="max-w-4xl mx-auto px-6">
         <div className="flex flex-col items-center">
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-8 animate-fade-in text-center">
-            {introLetters}
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-8 text-center">
+            <span className="text-blue-500">Hi, I'm</span> Hussain
           </h1>
 
-          <div className="flex justify-center items-center space-x-8 mb-12 animate-fade-in delay-100">
+          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 text-center">
+            Fourth Year Computer Science Student @ University of Guelph
+          </p>
+
+          <div className="flex justify-center items-center space-x-8 mb-8">
             <a
               href="https://github.com/ProgrammedByHussain"
               target="_blank"
               rel="noopener noreferrer"
-              className={`${
-                theme === "light" ? "text-gray-700" : "text-gray-300"
-              } hover:text-blue-500 transition-all hover:scale-125`}
+              className="text-gray-700 dark:text-gray-300 hover:text-blue-500 transition-colors"
               aria-label="GitHub"
             >
               <svg
@@ -57,9 +39,7 @@ export default function HeroSection() {
               href="https://linkedin.com/in/hussain-al-shammari"
               target="_blank"
               rel="noopener noreferrer"
-              className={`${
-                theme === "light" ? "text-gray-700" : "text-gray-300"
-              } hover:text-blue-500 transition-all hover:scale-125`}
+              className="text-gray-700 dark:text-gray-300 hover:text-blue-500 transition-colors"
               aria-label="LinkedIn"
             >
               <svg
@@ -80,9 +60,7 @@ export default function HeroSection() {
 
             <a
               href="mailto:alshammh@uoguelph.ca"
-              className={`${
-                theme === "light" ? "text-gray-700" : "text-gray-300"
-              } hover:text-blue-500 transition-all hover:scale-125`}
+              className="text-gray-700 dark:text-gray-300 hover:text-blue-500 transition-colors"
               aria-label="Email"
             >
               <svg
@@ -100,22 +78,6 @@ export default function HeroSection() {
               </svg>
             </a>
           </div>
-
-          <ThemeCard
-            className="max-w-2xl mx-auto p-6 backdrop-blur-sm text-left"
-            delay={200}
-          >
-            <p className="text-lg mb-4">
-              I'm a third-year computer science student at the University of
-              Guelph. I enjoy learning new things and building cool projects.
-              I'm passionate about software development and research.
-            </p>
-
-            <p className="text-lg">
-              When I'm not coding, I enjoy going to the gym and meeting new
-              people.
-            </p>
-          </ThemeCard>
         </div>
       </div>
     </section>
