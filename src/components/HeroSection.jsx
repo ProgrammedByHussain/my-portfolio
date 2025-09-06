@@ -59,7 +59,7 @@ export default function HeroSection() {
             </a>
 
             <a
-              href="mailto:alshammh@uoguelph.ca"
+              href="mailto:hussain.al.cs@gmail.com"
               className="text-gray-700 dark:text-gray-300 hover:text-blue-500 transition-colors"
               aria-label="Email"
             >
