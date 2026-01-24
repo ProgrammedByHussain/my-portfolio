@@ -5,9 +5,16 @@ import React from "react";
 export default function ExperienceSection() {
   const experiences = [
     {
+      company: "BMO Capital Markets",
+      position: "Software Engineer Intern",
+      period: "January 2026 - Present",
+      description: "Trading Platform",
+      logo: "BMO.jpeg",
+    },
+    {
       company: "BMO Financial Group",
       position: "Software Developer Intern",
-      period: "September 2025 - Present",
+      period: "September 2025 - December 2025",
       description: "APIs Platform Team (North American Retail Payments)",
       logo: "BMO.jpeg",
     },
