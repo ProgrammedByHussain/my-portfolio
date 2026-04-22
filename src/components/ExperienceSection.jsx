@@ -14,7 +14,7 @@ export default function ExperienceSection() {
       period: "May 2026 — Aug 2026",
       description: "Charging, Distributed Systems",
       technologies: ["Scala", "Akka", "Kubernetes", "Apache Kafka"],
-      logo: "Tesla.jpeg",
+      logo: "/tesla.jpeg",
     },
     {
       company: "BMO Capital Markets",
@@ -29,7 +29,7 @@ export default function ExperienceSection() {
         "Kubernetes",
         "Apache Kafka",
       ],
-      logo: "BMO.jpeg",
+      logo: "/BMO.jpeg",
     },
     {
       company: "BMO Financial Group",
@@ -37,7 +37,7 @@ export default function ExperienceSection() {
       period: "Sep 2025 — Dec 2025",
       description: "APIs Platform Team (North American Retail Payments)",
       technologies: ["TypeScript", "Node.js", "AWS"],
-      logo: "BMO.jpeg",
+      logo: "/BMO.jpeg",
     },
     {
       company: "Health Espresso Inc.",
@@ -51,7 +51,7 @@ export default function ExperienceSection() {
         "Python",
         "PostgreSQL",
       ],
-      logo: "HE.jpeg",
+      logo: "/HE.jpeg",
     },
     {
       company: "The University of British Columbia",
@@ -80,7 +80,7 @@ export default function ExperienceSection() {
         </>
       ),
       technologies: ["Golang", "Scala"],
-      logo: "UBC.jpg",
+      logo: "/UBC.jpg",
     },
     {
       company: "University of Guelph",
@@ -88,7 +88,7 @@ export default function ExperienceSection() {
       period: "Jun 2024 — Dec 2024",
       description: "Database Merging and Cleanup",
       technologies: ["Python", "Java", "MSSQL"],
-      logo: "UofG.png",
+      logo: "/UofG.png",
     },
   ];
 
