@@ -32,31 +32,9 @@ export default function ExperienceSection() {
       logo: "/BMO.jpeg",
     },
     {
-      company: "BMO Financial Group",
-      position: "Software Developer Intern",
-      period: "Sep 2025 — Dec 2025",
-      description: "APIs Platform Team (North American Retail Payments)",
-      technologies: ["TypeScript", "Node.js", "AWS"],
-      logo: "/BMO.jpeg",
-    },
-    {
-      company: "Health Espresso Inc.",
-      position: "Software Developer Intern",
-      period: "May 2025 — Aug 2025",
-      description: "Backend Development & QA Automation",
-      technologies: [
-        "TypeScript",
-        "Node.js",
-        "AWS",
-        "Python",
-        "PostgreSQL",
-      ],
-      logo: "/HE.jpeg",
-    },
-    {
       company: "The University of British Columbia",
       position: "Undergraduate Research Assistant",
-      period: "Jan 2025 — Aug 2025",
+      period: "Jan 2025 — Dec 2025",
       description: (
         <>
           Building{" "}
@@ -81,6 +59,22 @@ export default function ExperienceSection() {
       ),
       technologies: ["Golang", "Scala"],
       logo: "/UBC.jpg",
+    },
+    {
+      company: "BMO Financial Group",
+      position: "Software Developer Intern",
+      period: "Sep 2025 — Dec 2025",
+      description: "APIs Platform Team (North American Retail Payments)",
+      technologies: ["TypeScript", "Node.js", "AWS"],
+      logo: "/BMO.jpeg",
+    },
+    {
+      company: "Health Espresso Inc.",
+      position: "Software Developer Intern",
+      period: "May 2025 — Aug 2025",
+      description: "Backend Development & QA Automation",
+      technologies: ["TypeScript", "Node.js", "AWS", "Python", "PostgreSQL"],
+      logo: "/HE.jpeg",
     },
     {
       company: "University of Guelph",
