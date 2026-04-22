@@ -28,29 +28,29 @@ export default function ProjectsSection() {
       tags: ["Golang"],
       githubLink: "https://github.com/ProgrammedByHussain/GoRedis",
     },
-    {
-      title: "CodeDucky.AI",
-      description:
-        "Chrome extension for LeetCode hints from your code, powered by OpenAI.",
-      tags: ["React", "Flask", "OpenAI API", "Chrome Extension"],
-      demoLink: "",
-      githubLink: "https://github.com/ProgrammedByHussain/CodeDucky.AI",
-    },
-    {
-      title: "Green Link",
-      description:
-        "Rewards transit use with points redeemable at local businesses.",
-      tags: ["React Native", "TypeScript", "Node.js", "Supabase"],
-      award: "Top 8 · BramHacks 2024",
-      githubLink: "https://github.com/ProgrammedByHussain/GreenLink",
-    },
-    {
-      title: "Switchify",
-      description:
-        "Transfers Spotify playlists to Apple Music via MusicKit and Spotify APIs.",
-      tags: ["React", "TypeScript", "Node.js", "Express", "Tailwind CSS"],
-      githubLink: "https://github.com/ProgrammedByHussain/Switchify",
-    },
+    // {
+    //   title: "CodeDucky.AI",
+    //   description:
+    //     "Chrome extension for LeetCode hints from your code, powered by OpenAI.",
+    //   tags: ["React", "Flask", "OpenAI API", "Chrome Extension"],
+    //   demoLink: "",
+    //   githubLink: "https://github.com/ProgrammedByHussain/CodeDucky.AI",
+    // },
+    // {
+    //   title: "Green Link",
+    //   description:
+    //     "Rewards transit use with points redeemable at local businesses.",
+    //   tags: ["React Native", "TypeScript", "Node.js", "Supabase"],
+    //   award: "Top 8 · BramHacks 2024",
+    //   githubLink: "https://github.com/ProgrammedByHussain/GreenLink",
+    // },
+    // {
+    //   title: "Switchify",
+    //   description:
+    //     "Transfers Spotify playlists to Apple Music via MusicKit and Spotify APIs.",
+    //   tags: ["React", "TypeScript", "Node.js", "Express", "Tailwind CSS"],
+    //   githubLink: "https://github.com/ProgrammedByHussain/Switchify",
+    // },
   ];
 
   const open = (url) => window.open(url, "_blank", "noopener,noreferrer");
