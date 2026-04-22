@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fafafa;
+  --foreground: #0a0a0a;
+  --muted: #737373;
+  --border: rgba(0, 0, 0, 0.08);
+  --surface: rgba(0, 0, 0, 0.02);
 }
 
 @theme inline {
@@ -13,59 +16,42 @@
 }
 
 .dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+  --background: #09090b;
+  --foreground: #fafafa;
+  --muted: #a1a1aa;
+  --border: rgba(255, 255, 255, 0.06);
+  --surface: rgba(255, 255, 255, 0.03);
 }
 
 body {
   background: var(--background);
-  background-image: linear-gradient(
-      rgba(100, 100, 100, 0.03) 1px,
-      transparent 1px
-    ),
-    linear-gradient(90deg, rgba(100, 100, 100, 0.03) 1px, transparent 1px);
-  background-size: 30px 30px;
   color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
-}
-
-.dark body {
-  background-color: #0a0a0a;
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0.02) 1px,
-      transparent 1px
-    ),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  letter-spacing: -0.01em;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-/* Simple hover effects */
-.project-card {
-  transition: all 0.3s ease;
+::selection {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--foreground);
 }
 
-.project-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(100, 116, 139, 0.1);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(100, 116, 139, 0.3);
-  border-radius: 4px;
+  background: var(--border);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(100, 116, 139, 0.5);
+  background: var(--muted);
 }

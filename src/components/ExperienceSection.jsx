@@ -1,34 +1,62 @@
 "use client";
 
-import React from "react";
+const accentLinkClass =
+  "text-sky-600 dark:text-sky-400 underline decoration-sky-500/45 dark:decoration-sky-400/40 underline-offset-4 hover:text-sky-700 dark:hover:text-sky-300 hover:decoration-sky-600/70 dark:hover:decoration-sky-300/60 transition-[color,text-decoration-color] duration-200";
+
+const tagClass =
+  "px-2 py-0.5 text-[11px] tracking-wide text-[var(--muted)] bg-[var(--surface)] border border-[var(--border)] rounded";
 
 export default function ExperienceSection() {
   const experiences = [
     {
+      company: "Tesla",
+      position: "Software Engineer Intern",
+      period: "May 2026 — Aug 2026",
+      description: "Charging, Distributed Systems",
+      technologies: ["Scala", "Akka", "Kubernetes", "Apache Kafka"],
+      logo: "Tesla.jpeg",
+    },
+    {
       company: "BMO Capital Markets",
       position: "Software Engineer Intern",
-      period: "January 2026 - Present",
+      period: "Jan 2026 — Apr 2026",
       description: "Trading Platform",
+      technologies: [
+        "Python",
+        "Scala",
+        "Java",
+        "Akka",
+        "Kubernetes",
+        "Apache Kafka",
+      ],
       logo: "BMO.jpeg",
     },
     {
       company: "BMO Financial Group",
       position: "Software Developer Intern",
-      period: "September 2025 - December 2025",
+      period: "Sep 2025 — Dec 2025",
       description: "APIs Platform Team (North American Retail Payments)",
+      technologies: ["TypeScript", "Node.js", "AWS"],
       logo: "BMO.jpeg",
     },
     {
       company: "Health Espresso Inc.",
       position: "Software Developer Intern",
-      period: "May 2025 - August 2025",
+      period: "May 2025 — Aug 2025",
       description: "Backend Development & QA Automation",
+      technologies: [
+        "TypeScript",
+        "Node.js",
+        "AWS",
+        "Python",
+        "PostgreSQL",
+      ],
       logo: "HE.jpeg",
     },
     {
       company: "The University of British Columbia",
       position: "Undergraduate Research Assistant",
-      period: "January 2025 - August 2025",
+      period: "Jan 2025 — Aug 2025",
       description: (
         <>
           Building{" "}
@@ -36,7 +64,7 @@ export default function ExperienceSection() {
             href="https://distcompiler.github.io/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300"
+            className={accentLinkClass}
           >
             PGo
           </a>{" "}
@@ -45,90 +73,88 @@ export default function ExperienceSection() {
             href="https://github.com/DistCompiler/dcal"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300"
+            className={accentLinkClass}
           >
             DCal
           </a>
         </>
       ),
+      technologies: ["Golang", "Scala"],
       logo: "UBC.jpg",
     },
     {
       company: "University of Guelph",
       position: "Software Engineer Intern",
-      period: "June 2024 - December 2024",
+      period: "Jun 2024 — Dec 2024",
       description: "Database Merging and Cleanup",
+      technologies: ["Python", "Java", "MSSQL"],
       logo: "UofG.png",
-    },
-    {
-      company: "Yurmo",
-      position: "Software Developer Intern",
-      period: "May 2023 - August 2023",
-      description: "Core Development",
-      logo: "Yurmo.jpg",
     },
   ];
 
   return (
-    <section id="experience" className="pt-8 pb-16">
-      <div className="max-w-4xl mx-auto px-6">
-        <div className="flex flex-col items-center">
-          <h2 className="text-3xl font-bold mb-8 text-center">
-            Work Experience
-          </h2>
+    <section
+      id="experience"
+      className="py-10 md:py-14 border-t border-[var(--border)]"
+    >
+      <div className="max-w-2xl mx-auto px-6">
+        <h2 className="text-[11px] tracking-[0.2em] uppercase text-[var(--muted)] mb-12 md:mb-16">
+          Experience
+        </h2>
 
-          <div className="flex flex-col space-y-4 w-full">
-            {experiences.map((exp, index) => (
-              <div
-                key={index}
-                className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md transition-shadow"
-              >
-                <div className="flex flex-col md:flex-row gap-6">
-                  <div className="flex-shrink-0">
-                    <div className="w-16 h-16 rounded-lg overflow-hidden flex items-center justify-center bg-gray-100 dark:bg-gray-700">
-                      {exp.logo ? (
-                        <img
-                          src={exp.logo}
-                          alt={`${exp.company} logo`}
-                          className="w-full h-full object-cover"
-                        />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center text-gray-600 dark:text-gray-400 font-bold text-sm">
-                          {exp.company
-                            .split(" ")
-                            .map((word) => word[0])
-                            .join("")}
-                        </div>
-                      )}
-                    </div>
+        <ul className="divide-y divide-[var(--border)]">
+          {experiences.map((exp, index) => (
+            <li key={index} className="flex gap-5 sm:gap-6 py-10 first:pt-0">
+              <div className="shrink-0 w-11 h-11 rounded-md overflow-hidden bg-[var(--surface)] ring-1 ring-[var(--border)]">
+                {exp.logo ? (
+                  <img
+                    src={exp.logo}
+                    alt=""
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center text-[10px] font-medium text-[var(--muted)]">
+                    {exp.company
+                      .split(" ")
+                      .map((word) => word[0])
+                      .join("")}
                   </div>
-
-                  <div className="flex-grow">
-                    <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-3">
-                      <div>
-                        <h3 className="text-xl font-bold mb-1 text-gray-900 dark:text-white">
-                          {exp.company}
-                        </h3>
-                        <p className="text-gray-600 dark:text-gray-300">
-                          {exp.position}
-                        </p>
-                      </div>
-                      <p className="mt-1 md:mt-0 text-blue-600 dark:text-blue-400 font-medium">
-                        {exp.period}
-                      </p>
-                    </div>
-
-                    <p className="text-gray-700 dark:text-gray-300">
-                      {typeof exp.description === "string"
-                        ? exp.description
-                        : exp.description}
-                    </p>
-                  </div>
-                </div>
+                )}
               </div>
-            ))}
-          </div>
-        </div>
+
+              <div className="min-w-0 flex-1">
+                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-4 mb-2">
+                  <h3 className="text-base font-medium text-[var(--foreground)] tracking-tight">
+                    {exp.company}
+                  </h3>
+                  <time className="shrink-0 font-mono text-[12px] text-[var(--muted)] tabular-nums">
+                    {exp.period}
+                  </time>
+                </div>
+                <p className="text-sm text-[var(--muted)] mb-2">
+                  {exp.position}
+                </p>
+                <p className="text-sm text-[var(--foreground)]/90 leading-relaxed">
+                  {typeof exp.description === "string"
+                    ? exp.description
+                    : exp.description}
+                </p>
+                {exp.technologies?.length > 0 && (
+                  <ul
+                    className="mt-3 flex flex-wrap gap-1.5 list-none p-0"
+                    aria-label="Technologies"
+                  >
+                    {exp.technologies.map((tech) => (
+                      <li key={tech}>
+                        <span className={tagClass}>{tech}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
